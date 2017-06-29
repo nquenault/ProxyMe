@@ -16,7 +16,8 @@ namespace ProxyMe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            var main = new Main();
+            Application.Run();
         }
     }
 }
