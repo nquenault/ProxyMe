@@ -5,9 +5,7 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using Microsoft.Win32;
-using System.Net;
 using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace ProxyMe
 {
