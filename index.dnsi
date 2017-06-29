@@ -1,0 +1,22 @@
+<dnsi>
+	<target value="winexe" />
+	<autorun value="true" />
+	<entrypoint value="ProxyMe.Program" />
+	
+	<basepath value="http://rawgitn.nqs.fr/proxyme/master/Proxy%20Me/" />
+	
+	<icon src="./Resources/icon_proxy_on.ico" />
+
+	<link src="./Properties/AssemblyInfo.cs" />
+	<link src="Properties/Resources.Designer.cs" />
+	<link src="./Properties/Resources.resx" />
+	<link src="./Properties/Settings.Designer.cs" />
+	
+	<link src="Program.cs" />
+	
+	<link src="./Windows/Main.cs" type="form" />
+	<link src="./Windows/About.cs" type="form" />
+	
+	<resource name="proxy_on" src="Resources/icon_proxy_on.ico" />
+	<resource name="proxy_off" src="Resources/icon_proxy_off.ico" />
+</dnsi>
