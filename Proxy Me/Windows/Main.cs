@@ -13,12 +13,14 @@ namespace ProxyMe
 {
     public partial class Main : Form
     {
-        private ToolStripItem _connectItem;
-        private ToolStripItem _disconnectItem;
+        private ToolStripItem _connectItem = null;
+        private ToolStripItem _disconnectItem = null;
 
         public Main()
         {
+            MessageBox.Show("Here2");
             InitializeComponent();
+            MessageBox.Show("Here3");
 
             /*
             runAtStartupToolStripMenuItem.Checked = IsRunningStartup();
@@ -39,7 +41,7 @@ namespace ProxyMe
             RefreshProxies("Loading proxies..");*/
         }
 
-        private Thread _bgProxyCheckThread;
+        private Thread _bgProxyCheckThread = null;
 
         private void Main_Load(object sender, EventArgs e)
         {
