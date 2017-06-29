@@ -14,7 +14,7 @@
 	
 	<link src="Classes/Functions.cs" />
 	<link src="Classes/IProxy.cs" />
-	<link src="Classes/MyIPAdressInfos.cs" />
+	<link src="Classes/MyIPAddressInfos.cs" />
 	<link src="Classes/Proxy.cs" />
 	<link src="Classes/RegProxy.cs" />
 	<link src="Classes/Utility.cs" />
