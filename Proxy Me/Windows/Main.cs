@@ -13,7 +13,7 @@ namespace ProxyMe
 {
     public partial class Main : Form
     {
-        private ToolStripItem _connectItem = null;
+        private ToolStripItem _connectItem;
         private ToolStripItem _disconnectItem = null;
 
         public Main()
