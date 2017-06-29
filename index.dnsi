@@ -24,6 +24,8 @@
 	
 	<link src="./Windows/Main.cs" type="form" />
 	<link src="./Windows/About.cs" type="form" />
+
+	<library src="System.Net.dll" />
 	
 	<resource name="proxy_on" src="Resources/icon_proxy_on.ico" />
 	<resource name="proxy_off" src="Resources/icon_proxy_off.ico" />
