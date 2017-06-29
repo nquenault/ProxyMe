@@ -12,6 +12,14 @@
 	<link src="./Properties/Resources.resx" />
 	<link src="./Properties/Settings.Designer.cs" />
 	
+	<link src="Classes/Functions.cs" />
+	<link src="Classes/IProxy.cs" />
+	<link src="Classes/MyIPAdressInfos.cs" />
+	<link src="Classes/Proxy.cs" />
+	<link src="Classes/RegProxy.cs" />
+	<link src="Classes/Utility.cs" />
+	<link src="Classes/vars.cs" />
+	
 	<link src="Program.cs" />
 	
 	<link src="./Windows/Main.cs" type="form" />
