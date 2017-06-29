@@ -19,9 +19,7 @@ namespace ProxyMe
 
         public Main()
         {
-            MessageBox.Show("Here2");
             InitializeComponent();
-            MessageBox.Show("Here3");
                         
             runAtStartupToolStripMenuItem.Checked = IsRunningStartup();
 
@@ -36,7 +34,7 @@ namespace ProxyMe
             _bgProxyCheckThread = new Thread(BackgroundCheckCurrentProxy) { IsBackground = true };
             _bgProxyCheckThread.Start();
 
-            RefreshProxies("Loading proxies..");
+            //RefreshProxies("Loading proxies..");
         }
 
         private void RefreshProxies(string loadingString = "")
