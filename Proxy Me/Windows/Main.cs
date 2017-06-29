@@ -20,29 +20,23 @@ namespace ProxyMe
         {
             InitializeComponent();
 
-            try
-            {
-                runAtStartupToolStripMenuItem.Checked = IsRunningStartup();
+            /*
+            runAtStartupToolStripMenuItem.Checked = IsRunningStartup();
 
-                _connectItem = new ToolStripMenuItem() { Text = "&Connect", Enabled = false };
-                _disconnectItem = new ToolStripMenuItem() { Text = "&Disconnect", Enabled = false };
+            _connectItem = new ToolStripMenuItem() { Text = "&Connect", Enabled = false };
+            _disconnectItem = new ToolStripMenuItem() { Text = "&Disconnect", Enabled = false };
 
-                _connectItem.Click += connectToolStripMenuItem1_Click;
-                _disconnectItem.Click += disconnectToolStripMenuItem_Click;
+            _connectItem.Click += connectToolStripMenuItem1_Click;
+            _disconnectItem.Click += disconnectToolStripMenuItem_Click;
 
-                TaskIconMenuStrip1.Items.Insert(0, _connectItem);
-                TaskIconMenuStrip1.Items.Insert(1, _disconnectItem);
+            TaskIconMenuStrip1.Items.Insert(0, _connectItem);
+            TaskIconMenuStrip1.Items.Insert(1, _disconnectItem);
 
-                _bgProxyCheckThread = new Thread(BackgroundCheckCurrentProxy);
-                _bgProxyCheckThread.IsBackground = true;
-                _bgProxyCheckThread.Start();
+            _bgProxyCheckThread = new Thread(BackgroundCheckCurrentProxy);
+            _bgProxyCheckThread.IsBackground = true;
+            _bgProxyCheckThread.Start();
 
-                RefreshProxies("Loading proxies..");
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
+            RefreshProxies("Loading proxies..");*/
         }
 
         private Thread _bgProxyCheckThread;
