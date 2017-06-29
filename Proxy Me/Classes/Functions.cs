@@ -5,7 +5,6 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using Microsoft.Win32;
-using System.Net.Http;
 
 namespace ProxyMe
 {
@@ -45,15 +44,14 @@ namespace ProxyMe
         public static IEnumerable<Proxy> GetProxies(bool shuffle = false)
         {
             var proxies = new List<Proxy>();
-            var client = new HttpClient();
+            var client = new WebClient();
             string html = null;
 
-            client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36");
+            client.Headers.Add(HttpRequestHeader.UserAgent, "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36");
 
             try
             {
-                var task = client.GetStringAsync("https://www.sslproxies.org/");
-                html = task.Result;
+                html = client.DownloadString("https://www.sslproxies.org/");
             }
             catch
             {

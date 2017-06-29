@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
+using System.Net.NetworkInformation;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Threading;
-using ProxyMe.Properties;
-using System.Net.NetworkInformation;
-using System.Linq;
 using Microsoft.Win32;
+using ProxyMe.Properties;
 
 namespace ProxyMe
 {
@@ -34,7 +34,7 @@ namespace ProxyMe
             _bgProxyCheckThread = new Thread(BackgroundCheckCurrentProxy) { IsBackground = true };
             _bgProxyCheckThread.Start();
 
-            //RefreshProxies("Loading proxies..");
+            RefreshProxies("Loading proxies..");
         }
 
         private void RefreshProxies(string loadingString = "")
@@ -273,9 +273,9 @@ namespace ProxyMe
         private void checkAllProxiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ThreadPool.QueueUserWorkItem(delegate {
-                var opt = new ParallelOptions();
-                opt.MaxDegreeOfParallelism = 10;
-
+                var opt = new ParallelOptions() {
+                    MaxDegreeOfParallelism = 10
+                };
                 Parallel.For(0, ui_Proxies.Items.Count - 1, opt, i => {
                     ListViewItem item = null;
                     int itemIndex = -1;
@@ -369,6 +369,7 @@ namespace ProxyMe
             }
 
             Utility.TryInvoke(TaskIconMenuStrip1, (Action)delegate {
+                TaskIconMenuStrip1.Items.Add("&Show", null, showToolStripMenuItem_Click);
                 TaskIconMenuStrip1.Items.Add("&Exit", null, exitToolStripMenuItem1_Click);
             });
         }
@@ -406,6 +407,11 @@ namespace ProxyMe
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Visible = false;
+        }
+
+        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = true;
         }
     }
 }

@@ -31,19 +31,24 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.ui_icon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.TaskIconMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.runAtStartupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proxiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pingAllProxiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkAllProxiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.refreshProxiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.disconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ui_Connect = new System.Windows.Forms.ToolStripMenuItem();
             this.ui_SpecProxy = new System.Windows.Forms.ToolStripTextBox();
+            this.refreshProxiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.disconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ui_Proxies = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -61,15 +66,11 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.ui_Status = new System.Windows.Forms.ToolStripStatusLabel();
             this.ui_ExtraStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.TaskIconMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.runAtStartupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TaskIconMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.ProxiesMenuStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            this.TaskIconMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ui_icon
@@ -79,6 +80,28 @@
             this.ui_icon.Text = "Proxy Me";
             this.ui_icon.Visible = true;
             this.ui_icon.DoubleClick += new System.EventHandler(this.ui_Icon_DoubleClick);
+            // 
+            // TaskIconMenuStrip1
+            // 
+            this.TaskIconMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.showToolStripMenuItem,
+            this.exitToolStripMenuItem1});
+            this.TaskIconMenuStrip1.Name = "TaskIconMenuStrip1";
+            this.TaskIconMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.TaskIconMenuStrip1.Size = new System.Drawing.Size(153, 76);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
+            // 
+            // exitToolStripMenuItem1
+            // 
+            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem1.Text = "&Exit";
+            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
             // menuStrip1
             // 
@@ -110,16 +133,32 @@
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.closeToolStripMenuItem.Text = "&Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.exitToolStripMenuItem.Text = "&Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.runAtStartupToolStripMenuItem});
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 23);
+            this.settingsToolStripMenuItem.Text = "&Settings";
+            // 
+            // runAtStartupToolStripMenuItem
+            // 
+            this.runAtStartupToolStripMenuItem.CheckOnClick = true;
+            this.runAtStartupToolStripMenuItem.Name = "runAtStartupToolStripMenuItem";
+            this.runAtStartupToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.runAtStartupToolStripMenuItem.Text = "Run at startup";
+            this.runAtStartupToolStripMenuItem.Click += new System.EventHandler(this.runAtStartupToolStripMenuItem_Click);
             // 
             // proxiesToolStripMenuItem
             // 
@@ -155,9 +194,24 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // ui_Connect
+            // 
+            this.ui_Connect.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.ui_Connect.Image = ((System.Drawing.Image)(resources.GetObject("ui_Connect.Image")));
+            this.ui_Connect.Name = "ui_Connect";
+            this.ui_Connect.Size = new System.Drawing.Size(80, 23);
+            this.ui_Connect.Text = "Connect";
+            this.ui_Connect.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // ui_SpecProxy
+            // 
+            this.ui_SpecProxy.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.ui_SpecProxy.Name = "ui_SpecProxy";
+            this.ui_SpecProxy.Size = new System.Drawing.Size(150, 23);
             // 
             // refreshProxiesToolStripMenuItem
             // 
@@ -177,21 +231,6 @@
             this.disconnectToolStripMenuItem.Text = "&Disconnect";
             this.disconnectToolStripMenuItem.Visible = false;
             this.disconnectToolStripMenuItem.Click += new System.EventHandler(this.disconnectToolStripMenuItem_Click);
-            // 
-            // ui_Connect
-            // 
-            this.ui_Connect.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.ui_Connect.Image = ((System.Drawing.Image)(resources.GetObject("ui_Connect.Image")));
-            this.ui_Connect.Name = "ui_Connect";
-            this.ui_Connect.Size = new System.Drawing.Size(80, 23);
-            this.ui_Connect.Text = "Connect";
-            this.ui_Connect.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
-            // ui_SpecProxy
-            // 
-            this.ui_SpecProxy.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.ui_SpecProxy.Name = "ui_SpecProxy";
-            this.ui_SpecProxy.Size = new System.Drawing.Size(150, 23);
             // 
             // ui_Proxies
             // 
@@ -314,42 +353,12 @@
             this.ui_ExtraStatus.Name = "ui_ExtraStatus";
             this.ui_ExtraStatus.Size = new System.Drawing.Size(0, 17);
             // 
-            // TaskIconMenuStrip1
+            // showToolStripMenuItem
             // 
-            this.TaskIconMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.exitToolStripMenuItem1});
-            this.TaskIconMenuStrip1.Name = "TaskIconMenuStrip1";
-            this.TaskIconMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.TaskIconMenuStrip1.Size = new System.Drawing.Size(93, 32);
-            // 
-            // exitToolStripMenuItem1
-            // 
-            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.exitToolStripMenuItem1.Text = "&Exit";
-            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
-            // 
-            // settingsToolStripMenuItem
-            // 
-            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.runAtStartupToolStripMenuItem});
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 23);
-            this.settingsToolStripMenuItem.Text = "&Settings";
-            // 
-            // runAtStartupToolStripMenuItem
-            // 
-            this.runAtStartupToolStripMenuItem.CheckOnClick = true;
-            this.runAtStartupToolStripMenuItem.Name = "runAtStartupToolStripMenuItem";
-            this.runAtStartupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.runAtStartupToolStripMenuItem.Text = "Run at startup";
-            this.runAtStartupToolStripMenuItem.Click += new System.EventHandler(this.runAtStartupToolStripMenuItem_Click);
+            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.showToolStripMenuItem.Text = "&Show";
+            this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -365,12 +374,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Proxy Me";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
+            this.TaskIconMenuStrip1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ProxiesMenuStrip.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.TaskIconMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -414,6 +423,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem runAtStartupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
     }
 }
 
