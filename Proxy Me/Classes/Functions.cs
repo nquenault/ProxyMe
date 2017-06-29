@@ -23,7 +23,7 @@ namespace ProxyMe
             bool en = (int)registry.GetValue("ProxyEnable") == 1 ? true : false;
             string proxy = (string)registry.GetValue("ProxyServer");
 
-            return RegProxy.ParseProxyString(proxy == null ? "" : proxy, en);
+            return RegProxy.ParseProxyString(proxy ?? "", en);
         }
 
         public static void SetProxy(IProxy proxy, bool unset = false)

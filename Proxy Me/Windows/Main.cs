@@ -15,6 +15,7 @@ namespace ProxyMe
     {
         private ToolStripItem _connectItem;
         private ToolStripItem _disconnectItem;
+        private Thread _bgProxyCheckThread = null;
 
         public Main()
         {
@@ -26,25 +27,16 @@ namespace ProxyMe
 
             _connectItem = new ToolStripMenuItem() { Text = "&Connect", Enabled = false };
             _disconnectItem = new ToolStripMenuItem() { Text = "&Disconnect", Enabled = false };
-
-            _connectItem.Click += connectToolStripMenuItem1_Click;
+            
             _disconnectItem.Click += disconnectToolStripMenuItem_Click;
 
             TaskIconMenuStrip1.Items.Insert(0, _connectItem);
             TaskIconMenuStrip1.Items.Insert(1, _disconnectItem);
 
-            _bgProxyCheckThread = new Thread(BackgroundCheckCurrentProxy);
-            _bgProxyCheckThread.IsBackground = true;
+            _bgProxyCheckThread = new Thread(BackgroundCheckCurrentProxy) { IsBackground = true };
             _bgProxyCheckThread.Start();
 
             RefreshProxies("Loading proxies..");
-        }
-
-        private Thread _bgProxyCheckThread = null;
-
-        private void Main_Load(object sender, EventArgs e)
-        {
-            
         }
 
         private void RefreshProxies(string loadingString = "")
@@ -76,9 +68,7 @@ namespace ProxyMe
 
                     foreach (Proxy proxy in proxies)
                     {
-                        var item = new ListViewItem();
-                        item.Tag = proxy;
-                        item.Text = proxy.IP;
+                        var item = new ListViewItem() { Tag = proxy, Text = proxy.IP };
                         item.SubItems.Add(proxy.Port.ToString());
                         item.SubItems.Add(proxy.Code.ToString());
                         item.SubItems.Add(proxy.Country.ToString());
@@ -266,8 +256,7 @@ namespace ProxyMe
         private void pingAllProxiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ThreadPool.QueueUserWorkItem(delegate {
-                var opt = new ParallelOptions();
-                opt.MaxDegreeOfParallelism = 10;
+                var opt = new ParallelOptions() { MaxDegreeOfParallelism = 10 };
 
                 Parallel.For(0, ui_Proxies.Items.Count - 1, opt, i => {
                     ListViewItem item = null;
@@ -384,11 +373,6 @@ namespace ProxyMe
             Utility.TryInvoke(TaskIconMenuStrip1, (Action)delegate {
                 TaskIconMenuStrip1.Items.Add("&Exit", null, exitToolStripMenuItem1_Click);
             });
-        }
-
-        private void connectToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void disconnectToolStripMenuItem1_Click(object sender, EventArgs e)
